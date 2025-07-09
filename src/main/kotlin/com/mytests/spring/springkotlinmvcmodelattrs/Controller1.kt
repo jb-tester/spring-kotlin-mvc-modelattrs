@@ -2,9 +2,10 @@ package com.mytests.spring.springkotlinmvcmodelattrs
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.ui.ModelMap
+import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.servlet.mvc.support.RedirectAttributes
@@ -24,16 +25,24 @@ class Controller1 {
         return "viewName"
     }
     @GetMapping("/example1")
-    fun example1(model: Model): String {
-        model.addAttribute("attributeName", "value")
-        return "viewName" // return the name of the view
+    fun example1(modelMap: ModelMap): String {
+        modelMap["attributeName"] = "value"
+        modelMap.addAttribute("attributeName", "value")
+        modelMap.addAllAttributes(mapOf("attr1" to "value1", "attr2" to "value2"))
+        modelMap.addAllAttributes(listOf(Pair("attr3", "value3"), Pair("attr4", "value4")))
+        return "viewName"
     }
     @GetMapping("/example11")
     fun test0(model: Model):String{
-        model.asMap()["attr01"] = "attr01"
-        model.addAttribute("attr02", "attr02")
+        model.asMap()["attr111"] = "attr111"
+        model.addAttribute("attr112", "attr112")
+        model["attr113"] = "attr113"
+        model.addAllAttributes(mapOf("attr1" to "value1", "attr2" to "value2"))
+        model.addAllAttributes(listOf(Pair("attr3", "value3"), Pair("attr4", "value4")))
         return "test0"
     }
+
+
     @GetMapping("/example2")
     fun example2(): ModelAndView {
         val modelAndView = ModelAndView("viewName")
