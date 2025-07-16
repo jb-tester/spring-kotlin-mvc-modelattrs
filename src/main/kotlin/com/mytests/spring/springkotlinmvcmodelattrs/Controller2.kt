@@ -51,6 +51,7 @@ class Controller2 {
     }
 
     // view is not resolved, the model attribute there is also n/r obviously:
+    // https://youtrack.jetbrains.com/issue/IDEA-376027/Spring-MVC-implicit-view-name-is-not-resolved
     @GetMapping("/test2")
     @ModelAttribute("test2Data")
     fun handleTest2(): DataClass {
