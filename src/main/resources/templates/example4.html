@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>example4</title>
+</head>
+<body>
+mapping-level attribute added as model.asMap()["ex4_attr1"] = "ex4_attr1Value":
+<p th:text="${ex4_attr1}">oops</p>
+mapping-level attribute added as model.addAttribute("ex4_attr2", "ex4_attr2Value"):
+<p th:text="${ex4_attr2}">oops</p>
+mapping-level attribute added as model["ex4_attr3"] = "ex4_attr3Value":
+<p th:text="${ex4_attr3}">oops</p>
+mapping-level attributes added as model.addAllAttributes(mapOf("ex4_attr4" to "ex4_attr4Value", "ex4_attr5" to "ex4_attr5Value")):
+<p th:text="${ex4_attr4}">oops</p>
+<p th:text="${ex4_attr5}">oops</p>
+
+</body>
+</html>
