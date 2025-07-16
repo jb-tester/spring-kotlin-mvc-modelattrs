@@ -86,8 +86,8 @@ class Controller1 {
 
     @GetMapping("/example7")
     fun example7(redirectAttributes: RedirectAttributes): String {
-        // this attribute is not resolved:
         redirectAttributes["ex7_attr1"] = "ex7_attr1Value"
+        // this attribute is not resolved:
         redirectAttributes.addFlashAttribute("ex7_flashAttribute", "ex7_flashValue")
         return "redirect:/anotherEndpoint"
     }
