@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+</head>
+<body>
+mapping-level attribute added as @ModelAttribute annotation on method like
+@ModelAttribute("test2Data")
+fun handleTest2(): DataClass
+
+<p th:text="${test2Data.size}">oops</p>
+<p th:text="${test2Data.name}">oops</p>
+
+</body>
+</html>
