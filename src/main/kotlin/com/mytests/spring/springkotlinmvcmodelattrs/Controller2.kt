@@ -88,4 +88,10 @@ class Controller2 {
         return modelAndView
 
     }
+
+    // the model attribute is not resolved: https://youtrack.jetbrains.com/issue/IDEA-200115
+    @GetMapping("/test5")
+    fun test5(@ModelAttribute utilComponent: UtilComponent): ModelAndView {
+        return ModelAndView("test5_page")
+    }
 }
